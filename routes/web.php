@@ -3,6 +3,9 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +19,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/login', function () {
+    $credentials = [
+        'email' => 'pkutch@example.org',
+        'password' => 'password'
+    ];
+
+    if (Auth::attempt($credentials)) {
+        request()->session()->regenerate();
+
+        return auth()->user();
+    }
+
+
+    return 'Não foi autorizado';
+    // abort(401);
+
 });
 
 Route::get('/users', function () {
