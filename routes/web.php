@@ -23,9 +23,12 @@ Route::get('/', function () {
 
 Route::post('/login', function () {
     $credentials = [
-        'email' => 'pkutch@example.org',
+        'email' => 'eunice.wolf@example.com',
         'password' => 'password'
     ];
+
+    // return json_encode($credentials);
+    // die();
 
     if (Auth::attempt($credentials)) {
         request()->session()->regenerate();
@@ -35,7 +38,7 @@ Route::post('/login', function () {
 
 
     return 'Não foi autorizado';
-    // abort(401);
+    abort(401);
 
 });
 
