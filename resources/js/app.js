@@ -9,16 +9,16 @@ console.log('JS funcionando');
     console.log('csrf-cookie: ', response);
   });
   
-  await axios.post('/login').then(response => {
-    console.log('login: ', response);
-  });
+  // await axios.post('/login').then(response => {
+  //   console.log('login: ', response);
+  // });
   
-  await axios.get('/users').then((response) => {
-    console.log('users: ', response);
-  });
+  // await axios.get('/users').then((response) => {
+  //   console.log('users: ', response);
+  // });
   
-  await axios.get('/api/user').then((response) => {
-    console.log('api user: ', response);
-  });
+  // await axios.get('/api/user').then((response) => {
+  //   console.log('api user: ', response);
+  // });
 
 })()

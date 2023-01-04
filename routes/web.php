@@ -21,11 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/login', function () {
-    $credentials = [
-        'email' => 'eunice.wolf@example.com',
-        'password' => 'password'
-    ];
+Route::post('/login', function (Request $request) {
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
 
     // return json_encode($credentials);
     // die();
