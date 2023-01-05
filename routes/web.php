@@ -33,11 +33,12 @@ Route::post('/login', function (Request $request) {
     if (Auth::attempt($credentials)) {
         request()->session()->regenerate();
 
-        return auth()->user();
+        // return auth()->user();
+        return json_encode(['status' => 'ok', 'api_data' => auth()->user()]);
     }
 
 
-    return 'Não foi autorizado';
+    return json_encode(['status' => 'error']);
     abort(401);
 
 });
